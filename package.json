@@ -1,7 +1,7 @@
 {
-  "name": "api-rest-express",
+  "name": "finance",
   "version": "1.0.0",
-  "description": "Api Restfull Clean Arquitecture",
+  "description": "Api Restfull Finance",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tedesco8/home-buy-api.git"
+    "url": "git+https://github.com/tedescodev/finance-api.git"
   },
   "keywords": [
     "api",
     "rest",
     "node",
     "home",
-    "buy"
+    "finance"
   ],
   "author": "Pablo Tedesco",
   "license": "MIT",
