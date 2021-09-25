@@ -1,7 +1,7 @@
 module.exports = {
-  HomeController: require("./home.controller"),
+  VersionController: require("./version.controller"),
   UserController: require("./user.controller"),
-  HouseController: require("./house.controller"),
-  CommentController: require("./comment.controller"),
+  ExpenseController: require("./expense.controller"),
+  CategoryExpenseController: require("./categoryExpense.controller"),
   AuthController: require("./auth.controller")
 };

@@ -10,10 +10,10 @@ const { SWAGGER_PATH } = require("../config");
 const swaggerDocument = require(SWAGGER_PATH);
 
 module.exports = function({
-  HomeRoutes,
+  VersionRoutes,
   UserRoutes,
-  HouseRoutes,
-  CommentRoutes,
+  ExpenseRoutes,
+  CategoryExpenseRoutes,
   AuthRoutes
 }) {
   const router = express.Router();
@@ -25,10 +25,10 @@ module.exports = function({
     .use(helmet())
     .use(compression());
 
-  apiRoutes.use("/home", HomeRoutes);
+  apiRoutes.use("/version", VersionRoutes);
   apiRoutes.use("/user", UserRoutes);
-  apiRoutes.use("/house", HouseRoutes);
-  apiRoutes.use("/comment", CommentRoutes);
+  apiRoutes.use("/expense", ExpenseRoutes);
+  apiRoutes.use("/categoryExpense", CategoryExpenseRoutes);
   apiRoutes.use("/auth", AuthRoutes);
 
   router.use("/v1/api", apiRoutes);

@@ -1,7 +1,7 @@
 module.exports = {
-  HomeRoutes: require("./home.routes"),
+  VersionRoutes: require("./version.routes"),
   UserRoutes: require("./user.routes"),
-  HouseRoutes: require("./house.routes"),
-  CommentRoutes: require("./comment.routes"),
+  ExpenseRoutes: require("./expense.routes"),
+  CategoryExpenseRoutes: require("./categoryExpense.routes"),
   AuthRoutes: require("./auth.routes")
 };

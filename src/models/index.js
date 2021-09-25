@@ -1,5 +1,5 @@
 module.exports = {
   User: require("./user.model"),
-  House: require("./house.model"),
-  Comment: require("./comment.model")
+  Expense: require("./expense.model"),
+  CategoryExpense: require("./categoryExpense.model")
 };
