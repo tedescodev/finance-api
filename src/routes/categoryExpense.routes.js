@@ -1,14 +1,14 @@
 const { Router } = require("express");
-const { AuthMiddleware } = require("../middlewares");
+const { ParseIntMiddleware, AuthMiddleware } = require("../middlewares");
 
 module.exports = function({ CategoryExpenseController }) {
   const router = Router();
 
-  router.get("/:commentId/unique", AuthMiddleware, CategoryExpenseController.get);
-  router.get("/:houseId", AuthMiddleware, CategoryExpenseController.getHouseComments);
-  router.post("/:houseId", AuthMiddleware, CategoryExpenseController.createComment);
-  router.patch("/:commentId", AuthMiddleware, CategoryExpenseController.update);
-  router.delete("/:commentId", AuthMiddleware, CategoryExpenseController.delete);
+  router.get("", AuthMiddleware, [ParseIntMiddleware], CategoryExpenseController.getAll);
+  router.get("/:categoryId", AuthMiddleware, CategoryExpenseController.get);
+  router.post("", AuthMiddleware, CategoryExpenseController.create);
+  router.patch("/:categoryId", AuthMiddleware, CategoryExpenseController.update);
+  router.delete("/:categoryId", AuthMiddleware, CategoryExpenseController.delete);
 
   return router;
 };

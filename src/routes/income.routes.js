@@ -6,7 +6,7 @@ module.exports = function({ IncomeController }) {
 
   router.get("", AuthMiddleware, [ParseIntMiddleware], IncomeController.getAll);
   router.get("/:incomeId", AuthMiddleware, IncomeController.get);
-  router.get("/:userId/all", AuthMiddleware, IncomeController.getUserIncomes);
+  router.get("/:userId", AuthMiddleware, IncomeController.getUserIncomes);
   router.post("", AuthMiddleware, IncomeController.create);
   router.patch("/:incomeId", AuthMiddleware, IncomeController.update);
   router.delete("/:incomeId", AuthMiddleware, IncomeController.delete);
