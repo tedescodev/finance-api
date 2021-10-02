@@ -6,6 +6,10 @@ class IncomeRepository extends BaseRepository {
     super(Income);
     _income = Income;
   }
+
+  async getUserIncomes(author) {
+    return await _income.find({ author });
+  }
 }
 
 module.exports = IncomeRepository;

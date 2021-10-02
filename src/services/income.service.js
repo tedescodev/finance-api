@@ -7,7 +7,7 @@ class IncomeService extends BaseService {
     _incomeRepository = IncomeRepository;
   }
 
-  async getUserHouses(author) {
+  async getUserIncomes(author) {
     if (!author) {
       const error = new Error();
       error.status = 400;
@@ -15,51 +15,7 @@ class IncomeService extends BaseService {
       throw error;
     }
 
-    return await _incomeRepository.getUserHouses(author);
-  }
-
-  async upvoteHouse(houseId) {
-    if (!houseId) {
-      const error = new Error();
-      error.status = 400;
-      error.message = "houseId must be sent";
-      throw error;
-    }
-
-    const house = await _incomeRepository.get(houseId);
-
-    if (!house) {
-      const error = new Error();
-      error.status = 404;
-      error.message = "house does not exist";
-      throw error;
-    }
-
-    house.upvotes.push(true);
-
-    return await _incomeRepository.update(houseId, { upvotes: house.upvotes });
-  }
-
-  async downvoteHouse(houseId) {
-    if (!houseId) {
-      const error = new Error();
-      error.status = 400;
-      error.message = "houseId must be sent";
-      throw error;
-    }
-
-    const house = await _incomeRepository.get(houseId);
-
-    if (!house) {
-      const error = new Error();
-      error.status = 404;
-      error.message = "house does not exist";
-      throw error;
-    }
-
-    house.downvotes.push(true);
-
-    return await _incomeRepository.update(houseId, { downvotes: house.downvotes });
+    return await _incomeRepository.getUserIncomes(author);
   }
 }
 

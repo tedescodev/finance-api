@@ -5,13 +5,11 @@ module.exports = function({ IncomeController }) {
   const router = Router();
 
   router.get("", AuthMiddleware, [ParseIntMiddleware], IncomeController.getAll);
-  router.get("/:houseId", AuthMiddleware, IncomeController.get);
-  router.get("/:userId/all", AuthMiddleware, IncomeController.getUserHouses);
+  router.get("/:incomeId", AuthMiddleware, IncomeController.get);
+  router.get("/:userId/all", AuthMiddleware, IncomeController.getUserIncomes);
   router.post("", AuthMiddleware, IncomeController.create);
-  router.patch("/:houseId", AuthMiddleware, IncomeController.update);
-  router.delete("/:houseId", AuthMiddleware, IncomeController.delete);
-  router.post("/:houseId/upvote", AuthMiddleware, IncomeController.upvoteHouse);
-  router.post("/:houseId/downvote", AuthMiddleware, IncomeController.downvoteHouse);
+  router.patch("/:incomeId", AuthMiddleware, IncomeController.update);
+  router.delete("/:incomeId", AuthMiddleware, IncomeController.delete);
 
   return router;
 };

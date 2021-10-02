@@ -5,8 +5,8 @@ class IncomeController {
   }
 
   async get(req, res) {
-    const { houseId } = req.params;
-    const house = await _incomeService.get(houseId);
+    const { incomeId } = req.params;
+    const house = await _incomeService.get(incomeId);
     return res.send(house);
   }
 
@@ -24,33 +24,21 @@ class IncomeController {
 
   async update(req, res) {
     const { body } = req;
-    const { houseId } = req.params;
-    const updatedHouse = await _incomeService.update(houseId, body);
+    const { incomeId } = req.params;
+    const updatedHouse = await _incomeService.update(incomeId, body);
     return res.send(updatedHouse);
   }
 
   async delete(req, res) {
-    const { houseId } = req.params;
-    const deletedHouse = await _incomeService.delete(houseId);
+    const { incomeId } = req.params;
+    const deletedHouse = await _incomeService.delete(incomeId);
     return res.send(deletedHouse);
   }
 
-  async getUserHouses(req, res) {
-    const { houseId } = req.params;
-    const houses = await _incomeService.getUserHouses(houseId);
+  async getUserIncomes(req, res) {
+    const { incomeId } = req.params;
+    const houses = await _incomeService.getUserIncomes(incomeId);
     return res.send(houses);
-  }
-
-  async upvoteHouse(req, res) {
-    const { houseId } = req.params;
-    const house = await _incomeService.upvoteHouse(houseId);
-    return res.send(house);
-  }
-
-  async downvoteHouse(req, res) {
-    const { houseId } = req.params;
-    const house = await _incomeService.downvoteHouse(houseId);
-    return res.send(house);
   }
 }
 
