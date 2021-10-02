@@ -3,5 +3,6 @@ module.exports = {
   UserController: require("./user.controller"),
   ExpenseController: require("./expense.controller"),
   CategoryExpenseController: require("./categoryExpense.controller"),
-  AuthController: require("./auth.controller")
+  AuthController: require("./auth.controller"),
+  IncomeController: require("./income.controller")
 };

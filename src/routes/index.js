@@ -14,7 +14,8 @@ module.exports = function({
   UserRoutes,
   ExpenseRoutes,
   CategoryExpenseRoutes,
-  AuthRoutes
+  AuthRoutes,
+  IncomeRoutes
 }) {
   const router = express.Router();
   const apiRoutes = express.Router();
@@ -30,6 +31,7 @@ module.exports = function({
   apiRoutes.use("/expense", ExpenseRoutes);
   apiRoutes.use("/categoryExpense", CategoryExpenseRoutes);
   apiRoutes.use("/auth", AuthRoutes);
+  apiRoutes.use("/income", IncomeRoutes);
 
   router.use("/v1/api", apiRoutes);
   router.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
