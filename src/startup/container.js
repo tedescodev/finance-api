@@ -5,13 +5,14 @@ const config = require("../config");
 const app = require(".");
 
 // models
-const { User, CategoryExpense, Expense } = require("../models");
+const { User, CategoryExpense, Expense, Income } = require("../models");
 
 // repositories
 const {
   UserRepository,
   ExpenseRepository,
-  CategoryExpenseRepository
+  CategoryExpenseRepository,
+  IncomeRepository
 } = require("../repositories");
 
 const container = createContainer();
@@ -22,7 +23,8 @@ const {
   UserService,
   ExpenseService,
   CategoryExpenseService,
-  AuthService
+  AuthService,
+  IncomeService
 } = require("../services");
 
 // controllers
@@ -31,7 +33,8 @@ const {
   UserController,
   ExpenseController,
   CategoryExpenseController,
-  AuthController
+  AuthController,
+  IncomeController
 } = require("../controllers");
 
 // routes
@@ -40,7 +43,8 @@ const {
   UserRoutes,
   ExpenseRoutes,
   CategoryExpenseRoutes,
-  AuthRoutes
+  AuthRoutes,
+  IncomeRoutes
 } = require("../routes/index.routes");
 const Routes = require("../routes");
 
@@ -55,31 +59,36 @@ container
     UserRoutes: asFunction(UserRoutes).singleton(),
     ExpenseRoutes: asFunction(ExpenseRoutes).singleton(),
     CategoryExpenseRoutes: asFunction(CategoryExpenseRoutes).singleton(),
-    AuthRoutes: asFunction(AuthRoutes).singleton()
+    AuthRoutes: asFunction(AuthRoutes).singleton(),
+    IncomeRoutes: asFunction(IncomeRoutes).singleton(),
   })
   .register({
     VersionController: asClass(VersionController.bind(VersionController)).singleton(),
     UserController: asClass(UserController.bind(UserController)).singleton(),
     ExpenseController: asClass(ExpenseController.bind(ExpenseController)).singleton(),
     AuthController: asClass(AuthController.bind(AuthController)).singleton(),
-    CategoryExpenseController: asClass(CategoryExpenseController.bind(CategoryExpenseController)).singleton()
+    CategoryExpenseController: asClass(CategoryExpenseController.bind(CategoryExpenseController)).singleton(),
+    IncomeController: asClass(IncomeController.bind(IncomeController)).singleton(),
   })
   .register({
     VersionService: asClass(VersionService).singleton(),
     UserService: asClass(UserService).singleton(),
     CategoryExpenseService: asClass(CategoryExpenseService).singleton(),
     ExpenseService: asClass(ExpenseService).singleton(),
-    AuthService: asClass(AuthService).singleton()
+    AuthService: asClass(AuthService).singleton(),
+    IncomeService: asClass(IncomeService).singleton(),
   })
   .register({
     UserRepository: asClass(UserRepository).singleton(),
     ExpenseRepository: asClass(ExpenseRepository).singleton(),
-    CategoryExpenseRepository: asClass(CategoryExpenseRepository).singleton()
+    CategoryExpenseRepository: asClass(CategoryExpenseRepository).singleton(),
+    IncomeRepository: asClass(IncomeRepository).singleton()
   })
   .register({
     User: asValue(User),
     CategoryExpense: asValue(CategoryExpense),
-    Expense: asValue(Expense)
+    Expense: asValue(Expense),
+    Income : asValue(Income),
   });
   
 

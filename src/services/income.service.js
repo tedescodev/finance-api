@@ -1,10 +1,10 @@
 const BaseService = require("./base.service");
-let _expenseRepository = null;
+let _incomeRepository = null;
 
-class ExpenseService extends BaseService {
-  constructor({ ExpenseRepository }) {
-    super(ExpenseRepository);
-    _expenseRepository = ExpenseRepository;
+class IncomeService extends BaseService {
+  constructor({ IncomeRepository }) {
+    super(IncomeRepository);
+    _incomeRepository = IncomeRepository;
   }
 
   async getUserHouses(author) {
@@ -15,7 +15,7 @@ class ExpenseService extends BaseService {
       throw error;
     }
 
-    return await _expenseRepository.getUserHouses(author);
+    return await _incomeRepository.getUserHouses(author);
   }
 
   async upvoteHouse(houseId) {
@@ -26,7 +26,7 @@ class ExpenseService extends BaseService {
       throw error;
     }
 
-    const house = await _expenseRepository.get(houseId);
+    const house = await _incomeRepository.get(houseId);
 
     if (!house) {
       const error = new Error();
@@ -37,7 +37,7 @@ class ExpenseService extends BaseService {
 
     house.upvotes.push(true);
 
-    return await _expenseRepository.update(houseId, { upvotes: house.upvotes });
+    return await _incomeRepository.update(houseId, { upvotes: house.upvotes });
   }
 
   async downvoteHouse(houseId) {
@@ -48,7 +48,7 @@ class ExpenseService extends BaseService {
       throw error;
     }
 
-    const house = await _expenseRepository.get(houseId);
+    const house = await _incomeRepository.get(houseId);
 
     if (!house) {
       const error = new Error();
@@ -59,8 +59,8 @@ class ExpenseService extends BaseService {
 
     house.downvotes.push(true);
 
-    return await _expenseRepository.update(houseId, { downvotes: house.downvotes });
+    return await _incomeRepository.update(houseId, { downvotes: house.downvotes });
   }
 }
 
-module.exports = ExpenseService;
+module.exports = IncomeService;
