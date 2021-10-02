@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const IncomeSchema = new Schema({
-  amount: { type: String, required: true },
+  amount: { type: Schema.Types.Decimal128, required: true },
   description: { type: String, required: true },
   user: {
     type: Schema.Types.ObjectId,
